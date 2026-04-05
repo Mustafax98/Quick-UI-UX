@@ -9,13 +9,12 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 
     <title>Quick-XOS Dashboard - CSS Version</title>
 
 
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
         rel="stylesheet" />
@@ -25,6 +24,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -111,7 +111,7 @@
         h1,
         h2,
         h3,
-        .font-manrope {
+        .headline {
             font-family: 'Manrope', sans-serif;
         }
 
@@ -122,11 +122,15 @@
         .tonal-shift-only {
             border: none !important;
         }
+
+        .ghost-border {
+            outline: 1px solid rgba(169, 180, 185, 0.15);
+        }
     </style>
 </head>
 
 
-<body class="bg-background text-on-surface antialiased">
+<body class="bg-background text-on-background min-h-screen">
 
     <header>
         <div class="header-container">
@@ -137,7 +141,7 @@
                         Quick-XOS
                     </div>
                     <nav>
-                        <a class="active-link" href="/Main-Index.html">Dashboard</a>
+                        <a class="active-link" href="/Main-Index copy.html.html">Dashboard</a>
                         <a class="inactive-link" href="/Inventory/I-Index.html">Inventory</a>
                         <a class="inactive-link" href="/Operation/O-Index.html">Operation</a>
                         <a class="inactive-link" href="#">Stock</a>
@@ -175,319 +179,291 @@
         <div class="tonal-separation"></div>
 
         <div class="secondbar">
-            <div>
-                <h2 class="page-title font-manrope tracking-tight text-on-surface">Dashboard
-                    Overview</h2>
-            </div>
-            <div class="flex gap-3">
-                <button class="export-btn btn">
-                    Export Report
+            <nav>
+                <a class="active-link" href="/Dashboard/Overview.html">Overview / نظرة عامة</a>
+                <a class="inactive-link" href="#">Financials / المالية</a>
+                <a class="inactive-link" href="#">Risk Monitoring / مراقبة المخاطر</a>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 10rem;">
+
+                    <div class="relative group">
+                        <select class="w-full bg-white border border-slate-200 text-slate-700 text-sm rounded-xl px-12 py-0.5 appearance-none cursor-pointer transition-all 
+                       hover:border-blue-400 hover:bg-blue-50/30
+                       focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-500 shadow-sm">
+
+                            <option value="all" selected class="font-bold text-blue-600">جميع الفروع
+                            </option>
+                            <hr class="my-1">
+                            <option value="#">فرع 1 الرئيسي</option>
+                            <option value="#">فرع 2</option>
+                            <option value="#">فرع 3</option>
+                        </select>
+                    </div>
+                </div>
+                <button style="padding: 2px 10px ; border-radius: .5rem; background-color: #91c101; color: white; ">
+                    Export CSV
                 </button>
-                <button class="add-btn btn">
-                    Add Product
-                </button>
             </div>
+
         </div>
     </header>
 
-
-
-
-
-    <main class="p-8 min-h-screen">
-        <!-- Dashboard Header -->
-
-        <!-- Metric Bento Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-            <!-- Total Inventory -->
+    <!-- Main Canvas -->
+    <main class=" p-8 flex-1">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <div
-                class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden flex flex-col justify-between h-40">
-                <div class="flex justify-between items-start">
-                    <span class="material-symbols-outlined text-primary bg-primary-container p-2 rounded-lg"
-                        data-icon="inventory_2">inventory_2</span>
-                    <span class="text-xs font-bold text-primary flex items-center gap-1">
-                        <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
-                        +12%
-                    </span>
-                </div>
-                <div>
-                    <p class="text-label-md font-medium text-on-surface-variant uppercase tracking-wider text-[10px]">
-                        Total items</p>
-                    <h3 class="text-3xl font-extrabold font-manrope text-on-surface">91</h3>
-                </div>
-            </div>
-            <div
-                class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden flex flex-col justify-between h-40">
-                <div class="flex justify-between items-start">
-                    <span class="material-symbols-outlined text-danger bg-error-container p-2 rounded-lg"
-                        data-icon="hourglass_empty">hourglass_empty
-                    </span>
-                    <span class="text-xs font-bold text-error flex items-center gap-1">
-                        <span class="material-symbols-outlined text-xs" data-icon="priority_high">priority_high</span>
-                    </span>
-                </div>
-                <div>
-                    <p class="text-label-md font-medium text-on-surface-variant uppercase tracking-wider text-[10px]">
-                        Low Stock Alerts</p>
-                    <h3 class="text-3xl font-extrabold font-manrope text-on-surface">24</h3>
-                </div>
-            </div>
-            <!-- Low Stock Alerts -->
-            <div
-                class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden flex flex-col justify-between h-40">
-                <div class="flex justify-between items-start">
-                    <span class="material-symbols-outlined text-error bg-error-container p-2 rounded-lg"
-                        data-icon="warning">warning</span>
-                    <span class="text-xs font-bold text-error flex items-center gap-1">
-                        <span class="material-symbols-outlined text-xs" data-icon="priority_high">priority_high</span>
-                        Critical
-                    </span>
-                </div>
-                <div>
-                    <p class="text-label-md font-medium text-on-surface-variant uppercase tracking-wider text-[10px]">
-                        Expired stock</p>
-                    <h3 class="text-3xl font-extrabold font-manrope text-on-surface">6</h3>
-                </div>
-            </div>
-            <!-- Total Value -->
-            <div
-                class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden flex flex-col justify-between h-40">
-                <div class="flex justify-between items-start">
-                    <span class="material-symbols-outlined text-tertiary bg-tertiary-container p-2 rounded-lg"
-                        data-icon="payments">payments</span>
-                    <span class="text-xs font-bold text-on-surface-variant">Active Assets</span>
-                </div>
-                <div>
-                    <p class="text-label-md font-medium text-on-surface-variant uppercase tracking-wider text-[10px]">
-                        Total inventory Value</p>
-                    <h3 class="text-3xl font-extrabold font-manrope text-on-surface">LE 1.240.000</h3>
-                </div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Low Stock Table (Left/Center Column) -->
-            <div class="lg:col-span-2 space-y-6">
-                <div class="bg-surface-container-lowest rounded-xl overflow-hidden">
-                    <div class="px-6 py-5 flex justify-between items-center bg-surface-container-low/30">
-                        <h3 class="font-manrope font-bold text-on-surface">Critical Low Stock</h3>
-                        <a class="text-primary text-xs font-bold hover:underline" href="#">View All Alerts</a>
+                class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden">
+                <span class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider font-label">Total
+                    SKUs</span>
+
+                <div class="absolute top-4 right-4 text-primary font-bold text-xs">+3.2%</div>
+                <div style="display: flex; justify-content:space-between">
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-extrabold font-headline text-on-surface">1282</span>
                     </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left">
-                            <thead>
-                                <tr class="bg-surface-container-low/10">
-                                    <th
-                                        class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">
-                                        Product SKU</th>
-                                    <th
-                                        class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">
-                                        Item Name</th>
-                                    <th
-                                        class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">
-                                        Available</th>
-                                    <th
-                                        class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">
-                                        Threshold</th>
-                                    <th
-                                        class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">
-                                        Status</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-outline-variant/5">
-                                <tr class="hover:bg-surface-container-low transition-colors group">
-                                    <td class="px-6 py-4 font-mono text-xs text-on-surface-variant">PRD-882-QX
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-semibold text-on-surface">Industrial Flux
-                                        Capacitors</td>
-                                    <td class="px-6 py-4 text-sm">12</td>
-                                    <td class="px-6 py-4 text-sm text-on-surface-variant">50</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-error-container text-on-error-container text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-tight">Critical</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-surface-container-low transition-colors group">
-                                    <td class="px-6 py-4 font-mono text-xs text-on-surface-variant">PRD-109-LV
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-semibold text-on-surface">Titanium Alloy
-                                        Screws (M8)</td>
-                                    <td class="px-6 py-4 text-sm">450</td>
-                                    <td class="px-6 py-4 text-sm text-on-surface-variant">1,000</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-primary-container text-on-primary-container text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-tight">Refill
-                                            Pending</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-surface-container-low transition-colors group">
-                                    <td class="px-6 py-4 font-mono text-xs text-on-surface-variant">PRD-551-ZZ
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-semibold text-on-surface">Synthentic
-                                        Bio-Lubricant</td>
-                                    <td class="px-6 py-4 text-sm">8</td>
-                                    <td class="px-6 py-4 text-sm text-on-surface-variant">25</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-error-container text-on-error-container text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-tight">Critical</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-surface-container-low transition-colors group">
-                                    <td class="px-6 py-4 font-mono text-xs text-on-surface-variant">PRD-322-MN
-                                    </td>
-                                    <td class="px-6 py-4 text-sm font-semibold text-on-surface">Carbon Fiber
-                                        Sheets (2x2)</td>
-                                    <td class="px-6 py-4 text-sm">142</td>
-                                    <td class="px-6 py-4 text-sm text-on-surface-variant">200</td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-tight">Warning</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-15 gap-6">
-                    <div class="bg-surface-container-lowest p-6 rounded-x1">
-                        <h4 class="font-manrope font-bold text-on-surface mb-4">Stock Value by Category</h4>
-                        <div class="space-y-4">
-                            <div class="space-y-1">
-                                <div class="flex justify-between text-xs font-semibold mb-1">
-                                    <span>Raw Materials</span>
-                                    <span>65%</span>
-                                </div>
-                                <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
-                                    <div class="bg-primary h-full w-[65%]"></div>
-                                </div>
-                            </div>
-                            <div class="space-y-1">
-                                <div class="flex justify-between text-xs font-semibold mb-1">
-                                    <span>Finished Goods</span>
-                                    <span>24%</span>
-                                </div>
-                                <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
-                                    <div class="bg-secondary h-full w-[24%]"></div>
-                                </div>
-                            </div>
-                            <div class="space-y-1">
-                                <div class="flex justify-between text-xs font-semibold mb-1">
-                                    <span>MRO Supplies</span>
-                                    <span>11%</span>
-                                </div>
-                                <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
-                                    <div class="bg-tertiary h-full w-[11%]"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Recent Activity Log (Right Column) -->
-            <div class="bg-surface-container-lowest rounded-xl flex flex-col">
-                <div class="px-6 py-5 flex justify-between items-center border-b border-outline-variant/10">
-                    <h3 class="font-manrope font-bold text-on-surface">Recent Activity</h3>
-                    <button class="text-on-surface-variant p-1 hover:bg-surface-container-low rounded">
-                        <span class="material-symbols-outlined text-sm" data-icon="more_vert">more_vert</span>
+                    <button
+                        class="bg-error text-white py-[2px] px-3 rounded-full text-[10px] font-bold flex items-center justify-center transition-all duration-200 hover:scale-95 hover:text-on-error-container hover:bg-error-container min-w-[60px]">
+                        CRITICAL
                     </button>
                 </div>
-                <div class="p-6 space-y-6 flex-1 overflow-y-auto">
-                    <!-- Activity Item -->
-                    <div class="flex gap-4 relative">
-                        <div class="absolute top-8 left-4 bottom-0 w-px bg-outline-variant/30"></div>
-                        <div class="z-10 bg-primary-container p-2 rounded-full h-fit">
-                            <span class="material-symbols-outlined text-primary text-sm"
-                                data-icon="add_box">add_box</span>
-                        </div>
-                        <div>
-                            <p class="text-sm font-semibold text-on-surface leading-tight">New Stock Arrival</p>
-                            <p class="text-xs text-on-surface-variant mt-0.5">500 units of <span class="font-bold">M8
-                                    Screws</span> received from Alpha Supply Co.</p>
-                            <span
-                                class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter block mt-1">14
-                                mins ago</span>
-                        </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div
+                    class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden">
+                    <span class="text-error text-xs font-semibold uppercase tracking-wider font-label">Low
+                        Stock</span>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-extrabold font-headline text-error">24</span>
                     </div>
-                    <!-- Activity Item -->
-                    <div class="flex gap-4 relative">
-                        <div class="absolute top-8 left-4 bottom-0 w-px bg-outline-variant/30"></div>
-                        <div class="z-10 bg-secondary-container p-2 rounded-full h-fit">
-                            <span class="material-symbols-outlined text-secondary text-sm"
-                                data-icon="local_shipping">local_shipping</span>
-                        </div>
-                        <div>
-                            <p class="text-sm font-semibold text-on-surface leading-tight">Order Dispatched</p>
-                            <p class="text-xs text-on-surface-variant mt-0.5">Shipment #90212 for <span
-                                    class="font-bold">Global Tech</span> has left the dock.</p>
-                            <span
-                                class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter block mt-1">2
-                                hours ago</span>
-                        </div>
-                    </div>
-                    <!-- Activity Item -->
-                    <div class="flex gap-4 relative">
-                        <div class="absolute top-8 left-4 bottom-0 w-px bg-outline-variant/30"></div>
-                        <div class="z-10 bg-error-container p-2 rounded-full h-fit">
-                            <span class="material-symbols-outlined text-error text-sm"
-                                data-icon="remove_circle">remove_circle</span>
-                        </div>
-                        <div>
-                            <p class="text-sm font-semibold text-on-surface leading-tight">Manual Adjustment</p>
-                            <p class="text-xs text-on-surface-variant mt-0.5">User <span
-                                    class="font-bold">m_architect</span> reduced stock of Bio-Lubricant by 5
-                                units.</p>
-                            <span
-                                class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter block mt-1">5
-                                hours ago</span>
-                        </div>
-                    </div>
-                    <!-- Activity Item -->
-                    <div class="flex gap-4 relative">
-                        <div class="absolute top-8 left-4 bottom-0 w-px bg-outline-variant/30"></div>
-                        <div class="z-10 bg-tertiary-container p-2 rounded-full h-fit">
-                            <span class="material-symbols-outlined text-tertiary text-sm"
-                                data-icon="person">person</span>
-                        </div>
-                        <div>
-                            <p class="text-sm font-semibold text-on-surface leading-tight">Supplier Updated</p>
-                            <p class="text-xs text-on-surface-variant mt-0.5">Contract renewed with <span
-                                    class="font-bold">Titanium Forge Ltd</span> until 2026.</p>
-                            <span
-                                class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter block mt-1">Yesterday</span>
-                        </div>
-                    </div>
-                    <!-- Activity Item (Last) -->
-                    <div class="flex gap-4 relative">
-                        <div class="z-10 bg-primary-container p-2 rounded-full h-fit">
-                            <span class="material-symbols-outlined text-primary text-sm"
-                                data-icon="download">download</span>
-                        </div>
-                        <div>
-                            <p class="text-sm font-semibold text-on-surface leading-tight">Report Generated</p>
-                            <p class="text-xs text-on-surface-variant mt-0.5">Q3 Inventory Audit exported by
-                                <span class="font-bold">System Admin</span>.
-                            </p>
-                            <span
-                                class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter block mt-1">Yesterday</span>
-                        </div>
+                    <div style="display: flex; justify-content: flex-end;">
+
+                        <button
+                            class="bg-error text-white py-[2px] px-3 rounded-full text-[10px] font-bold flex items-center justify-center transition-all duration-200 hover:scale-95 hover:text-on-error-container hover:bg-error-container min-w-[60px]">
+                            CRITICAL
+                        </button>
                     </div>
                 </div>
-                <div class="p-4 border-t border-outline-variant/10 text-center">
-                    <button class="text-xs font-bold text-on-surface-variant hover:text-primary transition-colors">Show
-                        Older Activity</button>
+                <div
+                    class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden">
+                    <span class="text-error text-xs font-semibold uppercase tracking-wider font-label text-error">Not
+                        Available</span>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-extrabold font-headline text-error">18</span>
+                    </div>
+
+                    <div style="display: flex; justify-content: flex-end;">
+                        <button
+                            class="bg-error text-white py-[2px] px-3 rounded-full text-[10px] font-bold flex items-center justify-center transition-all duration-200 hover:scale-95 hover:text-on-error-container hover:bg-error-container min-w-[60px]">
+                            CRITICAL
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div
+                    class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden">
+                    <span class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider font-label">Best
+                        selling</span>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-extrabold font-headline text-on-surface">12</span>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end;">
+                        <button
+                            class="bg-[#a3d800] hover:bg-[#91c101] text-black px-2 py-0.5 rounded-full text-[12px] font-bold transition-all duration-200 hover:scale-95"
+                            style="color: white; ; border-radius: 1rem; width: 50%;">View</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden">
+                    <span
+                        class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider font-label">Lowest
+                        selling</span>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-extrabold font-headline text-on-surface">18</span>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end;">
+                        <button
+                            class="bg-[#a3d800] hover:bg-[#91c101] text-black px-2 py-0.5 rounded-full text-[12px] font-bold transition-all duration-200 hover:scale-95"
+                            style="color: white; ; border-radius: 1rem; width: 50%;">View</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div
+                    class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden">
+                    <span
+                        class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider font-label">Active
+                        Products</span>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-extrabold font-headline text-on-surface">1028</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 relative overflow-hidden">
+                    <span
+                        class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider font-label">In-Active
+                        Products</span>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-3xl font-extrabold font-headline text-on-surface">254</span>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; ">
+            <div style="width: 75%;"
+                class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-slate-100">
+                <div class="p-6 border-b border-slate-50 flex justify-between items-center">
+                    <h3 class="text-sm font-extrabold text-primary uppercase tracking-widest">Warehouse Status</h3>
+                    <div class="flex gap-4">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3 h-3 rounded-full bg-emerald-600"></span> Good
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3 h-3 rounded-full bg-blue-600"></span> Stable
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3 h-3 rounded-full bg-error"></span> Critical
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-surface-container-low">
+                                <th class="p-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+                                    Status</th>
+                                <th class="p-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+                                    Branch</th>
+                                <th class="p-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+                                    Zone</th>
+                                <th class="p-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+                                    Efficiency</th>
+                                    <th class="p-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+                                        Action</th>
+                                    </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-50">
+                            <tr class="hover:bg-surface transition-colors cursor-pointer">
+                                <td class="p-4">
+                                    <span
+                                    class="inline-block w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim shadow-[0_0_8px_rgba(78,222,163,0.5)]"></span>
+                                </td>
+                                <td class="p-4 text-xs font-semibold text-primary">Micro-Core Processors (H1)</td>
+                                <td class="p-4 text-xs text-primary font-medium">South-West High Bay</td>
+                                <td class="p-4 text-xs">
+                                    <span class="font-bold text-emerald-600">98%</span>
+                                </td>
+                                <td class="p-4">
+                                    <button style="background-color: #a3d800; color: #3f5500; border-radius: .3rem; padding: .1rem .4rem; font-size: .8rem; font-weight: bold;">Request</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface transition-colors cursor-pointer">
+                                <td class="p-4">
+                                    <span
+                                        class="inline-block w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(55,85,195,0.4)]"></span>
+                                </td>
+                                <td class="p-4 text-xs font-semibold text-primary">Cooling Vent Assembly</td>
+                                <td class="p-4 text-xs text-primary font-medium">Central Assembly Line</td>
+                                <td class="p-4 text-xs">
+                                    <span class="font-bold text-cyan-600">72%</span>
+                                </td>
+                                <td class="p-4">
+                                    <button style="background-color: #a3d800; color: #3f5500; border-radius: .3rem; padding: .1rem .4rem; font-size: .8rem; font-weight: bold;">Request</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-surface transition-colors cursor-pointer">
+                                <td class="p-4">
+                                    <span
+                                        class="inline-block w-2.5 h-2.5 rounded-full bg-error shadow-[0_0_8px_rgba(186,26,26,0.4)]"></span>
+                                </td>
+                                <td class="p-4 text-xs font-semibold text-primary">Power Management Module</td>
+                                <td class="p-4 text-xs text-primary font-medium">Holding Zone B</td>
+                                <td class="p-4 text-xs">
+                                    <span class="font-bold text-error">12%</span>
+                                </td>
+                                <td class="p-4">
+                                    <button style="background-color: #a3d800; color: #576a22; border-radius: .3rem; padding: .1rem .4rem; font-size: .8rem; font-weight: bold;">Request</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="width: 25%;" class="bg-surface-container-lowest rounded-xl p-6 overflow-hidden flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-sm font-extrabold text-primary uppercase tracking-widest">Priority Alerts</h2>
+                    <span
+                        class="bg-error/10 text-error py-[2px] px-3 rounded-full text-[10px] font-bold flex items-center justify-center transition-all duration-200 ">
+                        Alert (3)
+                    </span>
+                </div>
+                <div class="space-y-4 flex-1">
+                    <div class="group hover:bg-surface-container-low p-3 rounded-lg transition-all cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-bold text-primary">Titanium Chassis V2</span>
+                            <span
+                                class="bg-error/10 text-error px-2 py-0.5 rounded text-[9px] font-bold uppercase">Critical</span>
+                        </div>
+                        <div class="flex justify-between text-[11px] text-on-surface-variant">
+                            <span>SKU: T-CH-0921</span>
+                            <span class="text-primary font-bold">Qty: 2</span>
+                        </div>
+                        <div class="mt-3 w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+                            <div class="bg-error w-[15%] h-full"></div>
+                        </div>
+                    </div>
+                    <div class="group hover:bg-surface-container-low p-3 rounded-lg transition-all cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-bold text-primary">Optic Sensors (L-4)</span>
+                            <span
+                                class="bg-tertiary-fixed-dim/20 text-on-tertiary-container px-2 py-0.5 rounded text-[9px] font-bold uppercase">Restocking</span>
+                        </div>
+                        <div class="flex justify-between text-[11px] text-on-surface-variant">
+                            <span>SKU: OP-SEN-40</span>
+                            <span class="text-primary font-bold">Qty: 142</span>
+                        </div>
+                        <div class="mt-3 w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+                            <div class="bg-tertiary-fixed-dim w-[85%] h-full"></div>
+                        </div>
+                    </div>
+                    <div class="group hover:bg-surface-container-low p-3 rounded-lg transition-all cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-bold text-primary">Graphite Coolant</span>
+                            <span
+                                class="bg-secondary/10 text-secondary px-2 py-0.5 rounded text-[9px] font-bold uppercase">Re-Order</span>
+                        </div>
+                        <div class="flex justify-between text-[11px] text-on-surface-variant">
+                            <span>SKU: GR-CL-88</span>
+                            <span class="text-primary font-bold">Qty: 48</span>
+                        </div>
+                        <div class="mt-3 w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+                            <div class="bg-secondary w-[40%] h-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="w-full mt-6 py-3 border border-outline-variant/30 text-primary text-[10px] font-extrabold uppercase tracking-[0.2em] rounded-lg hover:bg-surface transition-colors">
+                    View Comprehensive Log
+                </button>
+            </div>
+
+
+        </div>
+
     </main>
+
     <!-- FAB for Quick Actions -->
     <button
         class="fixed bottom-8 right-8 bg-primary hover:bg-primary-dim text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center transition-all scale-100 active:scale-95 group">
         <span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform"
             data-icon="add">add</span>
     </button>
-</body>
-
-</html>
-</main>
 
 
 </body>
