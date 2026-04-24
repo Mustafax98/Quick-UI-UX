@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#3B82F6", // Vibrant Blue
+                        "primary-dim": "#2563EB",
+                        "secondary": "#6366F1", // Indigo
+                        "tertiary": "#10B981", // Fresh Green
+                        "warning": "#F59E0B", // Amber
+                        "on-error": "#fff7f6",
+                        "outline-variant": "#e2e8f0",
+                        "surface-container-low": "#f8fafc",
+                        "primary-fixed-dim": "#bfd5ff",
+                        "surface-container": "#f1f5f9",
+                        "on-primary-container": "#1e40af",
+                        "error-container": "#fee2e2",
+                        "on-secondary-container": "#4338ca",
+                        "primary-container": "#dbeafe",
+                        "error": "#ef4444",
+                        "on-background": "#0f172a",
+                        "secondary-container": "#e0e7ff",
+                        "surface-variant": "#f1f5f9",
+                        "background": "#f8fafc",
+                        "surface-container-highest": "#f1f5f9",
+                        "surface-container-high": "#f1f5f9",
+                        "outline": "#94a3b8",
+                        "on-surface-variant": "#64748b",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c7d2fe",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary": "#3B82F6",
+                        "surface": "#f8fafc",
+                        "on-surface": "#0f172a",
+                        "surface-bright": "#ffffff",
+                        "surface-dim": "#e2e8f0",
+                        "inverse-surface": "#0f172a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "full": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen flex overflow-hidden">
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden">
+        <!-- TopAppBar -->
+        <header class="bg-white/80 backdrop-blur-md border-b border-slate-200 top-0 z-40 h-20">
+            <div class="flex justify-between items-center w-full px-8 h-full">
+                <div class="flex items-center gap-16 flex-1">
+                    <h1 class="font-['Manrope'] font-extrabold text-[#10b981] text-xl">Quick-XOS</h1>
+                    <!-- Search Bar -->
+
+                    <nav style="display: flex; align-items: center;">
+                        <!-- Dashboard Active -->
+                        <a class="text-slate-600  mx-1 p-2 flex items-center hover:bg-slate-50 rounded-xl transition-all duration-200"
+                            href="/Inventory/overview.html">
+                            <span class="font-['Inter'] text-[17px] font-medium tracking-wide">Dashboard</span>
+                        </a>
+
+                        <div class="relative group p-2">
+                            <button
+                                class="flex items-center gap-1 text-primary hover:text-primary font-semibold transition-colors">
+                                <span>Inventory</span>
+                            </button>
+
+                            <div
+                                class="absolute left-0 mt-1 w-48 bg-white border border-slate-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <div class="p-2 space-y-1">
+                                    <a href="Overview-inventory-D.html"
+                                        class="flex items-center gap-3 px-3 py-2.5 text-sm text-slate-600 rounded-xl hover:bg-slate-50 hover:text-primary transition-all">
+                                        Overview
+                                    </a>
+
+                                    <a href="Items-inventory.html"
+                                        class="flex items-center gap-3 px-3 py-2.5 text-sm text-slate-600 rounded-xl hover:bg-slate-50 hover:text-primary transition-all">
+                                        Items Managment
+                                    </a>
+
+                                    <a href="#"
+                                        class="flex items-center gap-3 px-3 py-2.5 text-sm text-slate-600 rounded-xl hover:bg-slate-50 hover:text-primary transition-all">
+                                        Category Managment
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="text-slate-600 mx-1 p-2 flex items-center hover:bg-slate-50 rounded-xl transition-all duration-200"
+                            href="#">
+                            <span class="font-['Inter'] text-[17px] font-medium tracking-wide">Report</span>
+                        </a>
+                        </a>
+                        <a class="text-slate-600 mx-1 p-2 flex items-center hover:bg-slate-50 rounded-xl transition-all duration-200"
+                            href="#">
+                            <span class="font-['Inter'] text-[17px] font-medium tracking-wide">Operation</span>
+                        </a>
+                        </a>
+                        <a class="text-slate-600 mx-1 p-2 flex items-center hover:bg-slate-50 rounded-xl transition-all duration-200"
+                            href="#">
+                            <span class="font-['Inter'] text-[17px] font-medium tracking-wide">Analytics</span>
+                        </a>
+                    </nav>
+                </div>
+                <div
+                    class="hidden lg:flex items-center bg-slate-100 rounded-xl px-4 py-1 w-96 border border-transparent focus-within:border-primary/30 focus-within:bg-white transition-all">
+                    <span class="material-symbols-outlined text-slate-400 mr-2" data-icon="search">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder-slate-400"
+                        placeholder="Search inventory..." type="text" />
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 text-slate-600 hover:bg-slate-100 rounded-full transition-colors relative">
+                            <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                            <span
+                                class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+                        </button>
+                        <button class="p-2 text-slate-600 hover:bg-slate-100 rounded-full transition-colors">
+                            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        </button>
+                    </div>
+                    <div class="relative inline-block">
+                        <button onclick="toggleUserMenu(event)"
+                            class="h-10 w-10 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden focus:outline-none transition-transform active:scale-95">
+                            <img alt="Curator Profile" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-6ZOtcZVjd0iDJ2L8Z0GdDRNFLL0luA2700mN9mhNnqgElOqSp9duYmltMgQ_maZ4eCc1kvMvqP3YnK_WAdPVyTrtzE5EjJEnREnyNxOEEZ5oCpc4nBE7QC5H9HbLDYtAxaSpnMGFaBEiK82NBFfCbTPAvG21qLyIsOHrlwjlb-jMzfkVRSQP5mdLrk11yRz3yqvFoML5WqbnGlX3HB7A0_iRomQJH7TbevcH3_OBmJh5uvJ9lcF6WZUsPyS849IzglcFGR4fWQ" />
+                        </button>
+
+                        <div id="userDropdown"
+                            class="hidden absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-[100] animate-in fade-in zoom-in duration-200 origin-top-left">
+                            <div class="px-4 py-2 border-b border-slate-50 mb-1">
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Account</p>
+                            </div>
+
+                            <a class="text-slate-600 mx-2 p-3 flex items-center gap-3 hover:bg-slate-50 rounded-xl transition-all duration-200"
+                                href="#">
+                                <span class="material-symbols-outlined text-sm"
+                                    data-icon="contact_support">contact_support</span>
+                                <span class="font-['Inter'] text-sm font-medium tracking-wide">Support</span>
+                            </a>
+
+                            <a class="text-red-600 mx-2 p-3 flex items-center gap-3 hover:bg-red-50 rounded-xl transition-all duration-200"
+                                href="#">
+                                <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                                <span class="font-['Inter'] text-sm font-medium tracking-wide">Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Scrollable Content Canvas -->
+        <div class="flex-1 overflow-y-auto p-8 bg-background space-y-8">
+
+            <div class="flex items-center gap-4">
+                <div class="relative w-[200px] group">
+                    <button
+                        class="w-full h-12 flex items-center justify-between bg-white border border-slate-100 px-4 py-2.5 rounded-2xl shadow-sm group-hover:border-primary/30 transition-all">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-slate-400 text-lg">category</span>
+                            <span class="text-sm font-bold text-slate-700">All Categories</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 text-sm transition-transform group-focus-within:rotate-180">expand_more</span>
+                    </button>
+
+                    <div
+                        class="absolute top-full left-0 mt-2 w-full bg-white border border-slate-50 rounded-2xl shadow-xl py-2 z-50 opacity-0 invisible translate-y-2 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-200">
+
+                        <div class="px-3 pb-2 border-b border-slate-50 mb-1">
+                            <input type="text" placeholder="Search..."
+                                class="w-full bg-slate-50 border-none rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-1 focus:ring-primary/20">
+                        </div>
+
+                        <ul class="max-h-48 overflow-y-auto px-2 space-y-1 scrollbar-thin scrollbar-thumb-slate-100">
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all">
+                                    <span>Category 1</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">15</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Category 2</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">18</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Category 3</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">16</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative w-[200px] group">
+                    <button
+                        class="w-full h-12 flex items-center justify-between bg-white border border-slate-100 px-4 py-2.5 rounded-2xl shadow-sm group-hover:border-primary/30 transition-all">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-bold text-slate-700">All Quantities</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 text-sm transition-transform group-focus-within:rotate-180">expand_more</span>
+                    </button>
+
+                    <div
+                        class="absolute top-full left-0 mt-2 w-full bg-white border border-slate-50 rounded-2xl shadow-xl py-2 z-50 opacity-0 invisible translate-y-2 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-200">
+
+                        <div class="px-3 pb-2 border-b border-slate-50 mb-1">
+                            <input type="text" placeholder="Search..."
+                                class="w-full bg-slate-50 border-none rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-1 focus:ring-primary/20">
+                        </div>
+
+                        <ul class="max-h-48 overflow-y-auto px-2 space-y-1 scrollbar-thin scrollbar-thumb-slate-100">
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all">
+                                    <span>All quantities</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">15</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all">
+                                    <span>Stable</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">15</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Low</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">18</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Unavailable</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Expired</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">2</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+
+                <div class="relative w-[200px] group">
+                    <button
+                        class="w-full h-12 flex items-center justify-between bg-white border border-slate-100 px-4 py-2.5 rounded-2xl shadow-sm group-hover:border-primary/30 transition-all">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-bold text-slate-700">All Quantities</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 text-sm transition-transform group-focus-within:rotate-180">expand_more</span>
+                    </button>
+
+                    <div
+                        class="absolute top-full left-0 mt-2 w-full bg-white border border-slate-50 rounded-2xl shadow-xl py-2 z-50 opacity-0 invisible translate-y-2 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-200">
+
+                        <div class="px-3 pb-2 border-b border-slate-50 mb-1">
+                            <input type="text" placeholder="Search..."
+                                class="w-full bg-slate-50 border-none rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-1 focus:ring-primary/20">
+                        </div>
+
+                        <ul class="max-h-48 overflow-y-auto px-2 space-y-1 scrollbar-thin scrollbar-thumb-slate-100">
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all">
+                                    <span>All quantities</span>
+                                    <span class="text-[10px] bg-slate-100 px-1.5 rounded text-slate-400">15</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all">
+                                    <span>Name A-Z</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Name Z-A</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Quantities</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Suppliers</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="relative w-[120px] group">
+                    <button
+                        class="w-full h-12 flex items-center justify-between bg-white border border-slate-100 px-4 py-2.5 rounded-2xl shadow-sm group-hover:border-primary/30 transition-all">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-bold text-slate-700">Sort By</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-400 text-sm transition-transform group-focus-within:rotate-180">expand_more</span>
+                    </button>
+                    <div
+                        class="absolute top-full left-0 mt-2 w-full bg-white border border-slate-50 rounded-2xl shadow-xl py-2 z-50 opacity-0 invisible translate-y-2 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-200">
+
+                        <ul class="max-h-48 overflow-y-auto px-2 space-y-1 scrollbar-thin scrollbar-thumb-slate-100">
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all">
+                                    <span>A-Z</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-between px-3 py-2 text-sm text-slate-600 rounded-xl hover:bg-primary/5 hover:text-primary transition-all group/item">
+                                    <span>Z-A</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-surface-container-lowest rounded-2xl shadow-2xl shadow-primary/5 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-surface-container-low/50">
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Ref:(SKU)</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Image</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Name</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Category</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Statu</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Quantity</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Supplier</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Purchase price</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Selling price</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Expir Date</th>
+                            <th class="px-6 py-5 text-sm font-bold text-on-surface headline-font">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y-0">
+                        <!-- Product Row 1 -->
+                        <tr class="hover:bg-surface-container-low/30 transition-colors">
+                            <td class="px-6 py-6 w-40">
+                                <span
+                                    class="font-mono text-xs bg-surface-container px-2 py-1 rounded-md text-primary">BS-9921-X</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined">image</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6 w-32">
+                                <span class="text-sm font-bold text-[#102A43]">Product 1</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span
+                                    class="text-xs font-medium text-on-primary-container px-3 py-1 rounded-full bg-primary-fixed">Category
+                                    1</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                        <span class="text-xs font-bold text-secondary">Available</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs text-on-surface-variant mr-auto">124 PIECE</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">Advanced Alloy Gorp.</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">199.00 LE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">499.00 LE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">19/09/2026</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-2">
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">visibility</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-error hover:bg-error hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Product Row 2 -->
+                        <tr class="bg-surface-container-low/20 hover:bg-surface-container-low/30 transition-colors">
+                            <td class="px-6 py-6">
+                                <span
+                                    class="font-mono text-xs bg-surface-container px-2 py-1 rounded-md text-primary">BS-4412-M</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined">image</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6 w-32">
+                                <span class="text-sm font-bold text-[#102A43]">Product 2</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span
+                                    class="text-xs font-medium text-on-primary-container px-3 py-1 rounded-full bg-primary-fixed">Category
+                                    2</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="w-2 h-2 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.4)]"></span>
+                                        <span class="text-xs font-bold text-secondary">Low Stock</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-xs text-on-surface-variant mr-auto">8 PIECE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">Advanced Alloy Gorp.</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">250.00 LE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">280.00 LE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">22/6/2026</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-2">
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">visibility</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-error hover:bg-error hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Product Row 3 -->
+                        <tr class="hover:bg-surface-container-low/30 transition-colors">
+                            <td class="px-6 py-6">
+                                <span
+                                    class="font-mono text-xs bg-surface-container px-2 py-1 rounded-md text-primary">BS-1020-F</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="material-symbols-outlined">image</span>
+                            </td>
+                            <td class="px-6 py-6 w-32">
+                                <span class="text-sm font-bold text-[#102A43]">Product 3</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span
+                                    class="text-xs font-medium text-on-primary-container px-3 py-1 rounded-full bg-primary-fixed">Category
+                                    4</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.4)]"></span>
+                                        <span class="text-xs font-bold text-error">Unavailable</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-xs text-on-surface-variant mr-auto">0 PIECE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">Advanced Alloy Gorp.</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">350.00 LE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">450.00 LE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">12/12/2026</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-2">
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">visibility</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-error hover:bg-error hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Product Row 4 -->
+                        <tr class="bg-surface-container-low/20 hover:bg-surface-container-low/30 transition-colors">
+                            <td class="px-6 py-6">
+                                <span
+                                    class="font-mono text-xs bg-surface-container px-2 py-1 rounded-md text-primary">BS-2281-S</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined">image</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6 w-32">
+                                <span class="text-sm font-bold text-[#102A43]">Product 4</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span
+                                    class="text-xs font-medium text-on-primary-container px-3 py-1 rounded-full bg-primary-fixed">Category
+                                    4</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                        <span class="text-xs font-bold text-secondary">Available</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-xs text-on-surface-variant mr-auto">45 PIECE</span>
+                            </td>
+
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">Advanced Alloy Gorp.</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">80.00 LE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">120.00 LE</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <span class="text-sm font-bold text-primary">12/12/2026</span>
+                            </td>
+                            <td class="px-6 py-6">
+                                <div class="flex items-center gap-2">
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">visibility</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-primary hover:bg-primary hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                    <button
+                                        class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-low text-error hover:bg-error hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-sm">delete</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Pagination -->
+                <div
+                    class="px-6 py-6 bg-surface-container-low/30 border-t border-surface-container flex items-center justify-between">
+                    <p class="text-xs text-on-surface-variant">عرض <span class="font-bold text-primary">1 - 4</span>
+                        من
+                        أصل <span class="font-bold text-primary">142</span> منتج</p>
+                    <div class="flex gap-2">
+                        <button
+                            class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-slate-400 border border-surface-container hover:text-primary transition-all">
+                            <span class="material-symbols-outlined text-sm">chevron_right</span>
+                        </button>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-xs shadow-md">1</button>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-on-surface font-bold text-xs hover:bg-surface-container transition-all">2</button>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-on-surface font-bold text-xs hover:bg-surface-container transition-all">3</button>
+                        <button
+                            class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-slate-400 border border-surface-container hover:text-primary transition-all">
+                            <span class="material-symbols-outlined text-sm">chevron_left</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function toggleUserMenu(event) {
+            // منع الحدث من الانتقال للأب (عشان القائمة متقفلش فوراً)
+            event.stopPropagation();
+            const menu = document.getElementById('userDropdown');
+
+            // تبديل ظهور القائمة
+            menu.classList.toggle('hidden');
+        }
+
+        // إغلاق القائمة عند الضغط في أي مكان خارجها
+        window.onclick = function (event) {
+            const menu = document.getElementById('userDropdown');
+            if (!event.target.closest('#userDropdown')) {
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>
